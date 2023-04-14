@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include pibitff *.css
+recursive-include pibitff *.csv
+recursive-include pibitff *.html
+recursive-include pibitff *.ico
+recursive-include pibitff *.js
+recursive-include pibitff *.json
+recursive-include pibitff *.md
+recursive-include pibitff *.png
+recursive-include pibitff *.py
+recursive-include pibitff *.svg
+recursive-include pibitff *.txt
+recursive-exclude pibitff *.pyc
