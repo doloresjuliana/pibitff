@@ -1,0 +1,128 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:document_classification",
+ "creation": "2023-04-14 21:13:21.924605",
+ "default_view": "List",
+ "description": "Document Classification",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_classification",
+  "document_type",
+  "location_external_system",
+  "receiver_records_transaction",
+  "document_recorder",
+  "document_needs_approval",
+  "document_approver",
+  "document_needs_review",
+  "document_reviewer"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Document Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document_classification",
+   "fieldtype": "Data",
+   "label": "Document Classification",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.document_type && doc.document_type != \"TFF Document\"",
+   "fieldname": "document_needs_approval",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "label": "Document Needs Approval"
+  },
+  {
+   "depends_on": "eval: doc.document_needs_approval",
+   "fieldname": "document_approver",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Document Approver",
+   "mandatory_depends_on": "eval: doc.document_needs_approval",
+   "options": "Role"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.document_needs_approval",
+   "description": "Document needs review prior to submission for approval",
+   "fieldname": "document_needs_review",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "label": "Document Needs Review"
+  },
+  {
+   "depends_on": "eval: doc.document_needs_review",
+   "fieldname": "document_reviewer",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "label": "Document Reviewer",
+   "mandatory_depends_on": "eval: doc.document_needs_review",
+   "options": "Role"
+  },
+  {
+   "depends_on": "eval: doc.document_type === \"TFF External System Transaction\"",
+   "fieldname": "location_external_system",
+   "fieldtype": "Link",
+   "label": "Location External System",
+   "mandatory_depends_on": "eval: doc.document_type === \"TFF External System Transaction\"",
+   "options": "TFF Location External System"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval: doc.document_type && doc.document_type != \"TFF Document\" ",
+   "description": "The person who receives and records the document is also responsible for transforming it into a transaction.",
+   "fieldname": "receiver_records_transaction",
+   "fieldtype": "Check",
+   "label": "Receiver Records Transaction",
+   "read_only_depends_on": "eval: doc.document_type === \"TFF Document\""
+  },
+  {
+   "depends_on": "eval: doc.document_type && !doc.receiver_records_transaction",
+   "description": "Responsible for transforming the document into a transaction or other documentary classification.",
+   "fieldname": "document_recorder",
+   "fieldtype": "Link",
+   "label": "Document Recorder",
+   "mandatory_depends_on": "eval: !doc.receiver_records_transaction ",
+   "options": "Role"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-18 11:28:36.013729",
+ "modified_by": "Administrator",
+ "module": "PibiTFF",
+ "name": "TFF Classification",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

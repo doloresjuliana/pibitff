@@ -1,0 +1,109 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TFF-{YY}-{MM}-{######}",
+ "creation": "2023-04-14 21:26:15.474356",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "document_classification",
+  "reception_type",
+  "document_file",
+  "communication_context",
+  "document_text",
+  "recorded_transaction",
+  "doctype_transaction",
+  "name_transaction"
+ ],
+ "fields": [
+  {
+   "fieldname": "document_classification",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Document Classification",
+   "options": "TFF Classification",
+   "reqd": 1
+  },
+  {
+   "fieldname": "document_file",
+   "fieldtype": "Attach",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Document File",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "recorded_transaction",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "label": "Recorded Transaction",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reception_type",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_standard_filter": 1,
+   "label": "Reception Type",
+   "options": "TFF Reception Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "doctype_transaction",
+   "fieldtype": "Link",
+   "label": " DocType Transaction",
+   "options": "DocType",
+   "read_only": 1
+  },
+  {
+   "fieldname": "name_transaction",
+   "fieldtype": "Data",
+   "label": "Name Transaction",
+   "read_only": 1
+  },
+  {
+   "description": "Cover letter or email that accompanied the document, if it exists and is relevant to contest.",
+   "fieldname": "communication_context",
+   "fieldtype": "Attach",
+   "label": " Communication Context"
+  },
+  {
+   "fieldname": "document_text",
+   "fieldtype": "Long Text",
+   "label": "Document Text",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-30 11:37:41.171135",
+ "modified_by": "Administrator",
+ "module": "PibiTFF",
+ "name": "TFF Document",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

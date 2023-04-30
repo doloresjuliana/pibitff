@@ -1,0 +1,107 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"1oiEfTRaU1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Transaction From File</span>\",\"col\":12}},{\"id\":\"jkOuVC9czU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Document\",\"col\":3}},{\"id\":\"3LYV8Ewpv_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Documents Pending Registration\",\"col\":4}},{\"id\":\"UZsBufu81t\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"External System Transactions\",\"col\":4}},{\"id\":\"PPfjsCw1wI\",\"type\":\"card\",\"data\":{\"card_name\":\"Setting TFF\",\"col\":4}},{\"id\":\"pEkf6O2-kE\",\"type\":\"card\",\"data\":{\"card_name\":\"Setting Other Systems\",\"col\":4}}]",
+ "creation": "2023-04-17 20:17:07.691712",
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "file",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "TFF",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setting TFF",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Document Classification",
+   "link_count": 0,
+   "link_to": "TFF Classification",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reception Types",
+   "link_count": 0,
+   "link_to": "TFF Reception Type",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setting Other Systems",
+   "link_count": 2,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "External Systems",
+   "link_count": 0,
+   "link_to": "TFF External System",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Locations External System",
+   "link_count": 0,
+   "link_to": "TFF Location External System",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2023-04-17 21:28:09.438791",
+ "modified_by": "Administrator",
+ "module": "PibiTFF",
+ "name": "TFF",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Tools",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 5.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "New",
+   "label": "New Document",
+   "link_to": "TFF Document",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Documents Pending Registration",
+   "link_to": "TFF Document",
+   "stats_filter": "{\"recorded_transaction\":[\"=\",0]}",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "External System Transactions",
+   "link_to": "TFF External System Transaction",
+   "type": "DocType"
+  }
+ ],
+ "title": "TFF"
+}

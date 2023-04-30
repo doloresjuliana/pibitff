@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-04-17 17:27:32.532649",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tff_document",
+  "location",
+  "transaction_reference"
+ ],
+ "fields": [
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Location",
+   "options": "TFF Location External System",
+   "reqd": 1
+  },
+  {
+   "description": "Enter the unique key that identifies the transaction record. For example, a record ID if it is a management system or a line and sheet number if it is an Excel file.",
+   "fieldname": "transaction_reference",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction Reference",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tff_document",
+   "fieldtype": "Link",
+   "label": "TFF Document",
+   "options": "TFF Document",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-04-17 17:48:53.418436",
+ "modified_by": "Administrator",
+ "module": "PibiTFF",
+ "name": "TFF External System Transaction",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
