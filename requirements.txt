@@ -1,2 +1,6 @@
 # frappe -- https://github.com/frappe/frappe is installed via 'bench init'
-langchain==0.0.153
+langchain==0.0.154
+unstructured
+pdfminer.six
+unstructured[local-inference]
+#detectron2

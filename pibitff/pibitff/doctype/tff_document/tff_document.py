@@ -7,7 +7,7 @@ from frappe.model.document import Document
 
 from pathlib import Path
 import imghdr
-import os
+
 
 class TFFDocument(Document):
 	pass
@@ -31,13 +31,13 @@ def get_textinfile(file):
 	else: return None
 
 def get_textinpdf(file):
-	from langchain.document_loaders import UnstructuredPDFLoader
+	from langchain.document_loaders.pdf import UnstructuredPDFLoader
 	loader = UnstructuredPDFLoader(file)
-	data = loader.load()
+	data = ' '.join(map(str, loader.load()))
 	return data
 
 def get_textinimage(file):
 	from langchain.document_loaders.image import UnstructuredImageLoader
 	loader = UnstructuredImageLoader(file)
-	data = loader.load()
-	return data[0]
+	data = ' '.join(map(str, loader.load()))
+	return data
