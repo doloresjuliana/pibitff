@@ -12,6 +12,7 @@
   "reception_type",
   "document_file",
   "communication_context",
+  "document_pdf",
   "document_text",
   "recorded_transaction",
   "doctype_transaction",
@@ -78,11 +79,16 @@
    "fieldtype": "Long Text",
    "label": "Document Text",
    "read_only": 1
+  },
+  {
+   "fieldname": "document_pdf",
+   "fieldtype": "Attach",
+   "label": "Document PDF"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-04-30 11:37:41.171135",
+ "modified": "2023-05-09 20:55:17.602557",
  "modified_by": "Administrator",
  "module": "PibiTFF",
  "name": "TFF Document",

@@ -3,7 +3,7 @@
 
 frappe.ui.form.on("TFF Document", {
     refresh(frm) {
-       if (!frm.doc.document_text) {
+       //if (!frm.doc.document_text) {
             frm.add_custom_button('Text Capture', () => {
                 frappe.call({
                     method: "pibitff.pibitff.doctype.tff_document.tff_document.text_capture",
@@ -16,7 +16,7 @@ frappe.ui.form.on("TFF Document", {
                     },
                 });
             })
-        }
+        //}
         if (!frm.doc.recorded_transaction) {
             frm.add_custom_button('Transactional Process', () => {
                 frappe.set_route("tff-process", frm.doc.name);

@@ -6,12 +6,23 @@ import { registerGlobalComponents } from "./globals.js";
 
 class TffProcess {
 	constructor({ wrapper, page, docname }) {
-		console.log("llega");
 		this.$wrapper = $(wrapper);
 		this.page = page;
 		this.docname = docname;
 		this.read_only = false;
 		this.get_document();
+		this.get_doctype_transaction();
+		this.doctype_url = this.doctype_transaction.toLowerCase().replace(" ", "-");
+		this.site_path = this.get_base_url();
+		this.urlpdf = this.site_path + this.document.document_pdf;
+		if (!this.document.recorded_transaction){
+			this.urldoctype = this.site_path + "/app/" + 
+			this.doctype_url + "/new";
+		} else {
+			this.urldoctype = this.site_path + "/app/" + 
+			this.doctype_url + "/" + this.document.name_transaction;
+		}
+	
 		this.init();
 	}
 
@@ -40,7 +51,10 @@ class TffProcess {
 		let pinia = createPinia();
 
 		// create a vue instance
-		let app = createApp(TffProcessComponent);
+		let app = createApp(TffProcessComponent, {
+			urlpdf: this.urlpdf,
+      		urldoctype: this.urldoctype
+		});
 		SetVueGlobals(app);
 		app.use(pinia);
 
@@ -117,6 +131,31 @@ class TffProcess {
 				}
 			},
 		});
+	}
+
+	get_doctype_transaction() {
+		if (this.document.recorded_transaction && this.document.doctype_transaction ) {
+			this.doctype_transaction = this.document.doctype_transaction;
+		} else {
+			var me = this;
+			frappe.call({
+				method: "pibitff.pibitff.doctype.tff_document.tff_document.get_doctype",
+				args: { document_classification: this.document.document_classification, },
+				async: false,
+				callback: function (r) {
+					if (r.message) {
+						me.doctype_transaction = r.message;
+					}
+				},
+			});
+		}
+	}
+
+	get_base_url() {
+		// var url= (frappe.base_url || window.location.href).split('#')[0].split('?')[0].split('desk')[0];
+		var url = frappe.base_url || window.location.origin;
+		if (url.substr(url.length - 1, 1) == "/") url = url.substr(0, url.length - 1);
+		return url;
 	}
 }
 

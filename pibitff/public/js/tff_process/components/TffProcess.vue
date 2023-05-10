@@ -1,30 +1,34 @@
 <template>
     <div class="wrapper">
-        <div class="one">
-            <iframe class="w-full min-w-[75vw] h-[90vh]" 
-            src="http://192.168.1.65:8000/private/files/FACTURA%20230421.pdf">
-            </iframe>
-        </div>
-        <div class="two">Two
-            <h1>Aqui 2</h1>
-        </div>
+        <iframe :src=urlpdf></iframe>
+        <iframe :src=urldoctype></iframe>
     </div>
 </template>
-<script setup></script>
+
+<script>
+export default {
+  props: {
+    urlpdf: String,
+    urldoctype: String
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: DodgerBlue;
 }
-.one {
-  background-color: blueviolet;
-  grid-column: 1 / 2;
-}
-.two {
-  background-color: blue;
-  grid-column: 2 / 2;
+
+.wrapper > iframe{
+  background-color: #f1f1f1;
+  width: 49%;
+  height: 480px;
+  margin: 0.5%;
+  line-height: 1500%;
 }
 </style>
